@@ -137,12 +137,16 @@ int		main(int argc, char *argv[])
 	if (argc < 3)
 		usage(argv[0]);
 	int		tmp;
+	char	*tmp2;
 
-	for (int p = 2; p < argc; p++)
+	for (int p = 2; p < argc; p++) {
+		tmp2 = strrchr(argv[p], '/');
+		tmp2 = (tmp2 == NULL) ? argv[p] : tmp2 + 1;
 		if ((tmp = strlen(argv[p])) < 2
-				|| (argv[p][tmp - 2] != '.')
-				|| (argv[p][tmp - 1] != 'c' && argv[p][tmp - 1] != 'h'))
-			ft_exit("error: not file.[ch]\n");
+				|| ((argv[p][tmp - 2] != '.' && argv[p][tmp - 1] != 'c' && argv[p][tmp - 1] != 'h')
+				&& strncmp(tmp2, "Makefile", strlen("Makefile")) != 0))
+			ft_exit("error: not Makefile || file.[ch]\n");
+	}
 	char	*name_file;
 
 	name_file = strrchr(argv[1], '/');
