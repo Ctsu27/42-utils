@@ -1,2 +1,2 @@
 #!/bin/zsh
-gcc -o 42head 42header.c
+gcc -o 42header 42header.c
