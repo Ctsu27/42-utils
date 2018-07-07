@@ -6,7 +6,7 @@
 /*   By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 11:06:52 by kehuang           #+#    #+#             */
-/*   Updated: 2018/07/07 11:06:54 by kehuang          ###   ########.fr       */
+/*   Updated: 2018/07/07 11:14:30 by kehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,14 @@ static void	ft_putendl(char const *str)
 	write(1, "\n", 1);
 }
 
-static void	usage(char const *name_prog)
+static void	usage(char const *path)
 {
+	char	*name_prog;
+
+	name_prog = strrchr(path, '/');
+	name_prog = (name_prog == NULL) ? (char *)path : (name_prog + 1);
 	ft_putstr("usage: ");
+	ft_putstr("./");
 	ft_putstr(name_prog);
 	ft_putstr(" <author_file> [file.c file.h] [...]\n");
 	ft_putstr("pro tips -> *.[ch] => path/**/*.[ch]\n");
