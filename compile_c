@@ -1,0 +1,4 @@
+#!/bin/zsh
+src_dir=srcs
+bin_dir=bin
+gcc -o $bin_dir/42header $src_dir/42header.c;
