@@ -1,0 +1,5 @@
+__attribute__((destructor)) void ke_end (void)
+{
+	printf("%send test%s %s%s%s\n\n", "\033[31m", "\033[0m",
+		"\033[33m", __FILE__, "\033[0m");
+}

@@ -1,0 +1,5 @@
+__attribute__((constructor)) void ke_begin (void)
+{
+	printf("%sstart test%s %s%s%s\n", "\033[32m", "\033[0m",
+		"\033[33m", __FILE__, "\033[0m");
+}
